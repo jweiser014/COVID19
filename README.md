@@ -9,6 +9,7 @@ Names2.csv - output
 
 
 https://developer.twitter.com/en/docs/labs/covid19-stream/overview
+
 Access requirements
 The volume of data this stream delivers is significant, such that prior experience working with Twitter data and having the necessary             infrastructure in place to process, store, and analyze the many millions of Tweets being generated every day is critical. We have                 introduced a dedicated application to ensure you have access to the capabilities required to effectively use the endpoint in service of           the public good. Prerequisites to that application include:
 
