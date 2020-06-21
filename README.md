@@ -1,5 +1,4 @@
 # COVID19
-files:
 
 main.py - main file
 
