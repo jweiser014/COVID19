@@ -2,7 +2,7 @@
 
 main.py - main file
 
-twitter_credentials.json - twitter rate limits requests for data, rate limiting tied to credentials token
+twitter_credentials.json - credentials token tied to Jason's twitter developer account
 
 Names2.csv - output
 
