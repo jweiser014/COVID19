@@ -3,21 +3,20 @@ import json
 import pandas as pd
 import csv
 
-
+#Credentials for twitter rate limiting, 15 minute windows
 with open("twitter_credentials.json", "r") as file:
     creds = json.load(file)
 python_tweets = Twython(creds['CONSUMER_KEY'], creds['CONSUMER_SECRET'])
 
-
+#q is the query word, result_type is where tweets are coming from, count is the batch size, max 100 tweets in a request batch
 query = {'q': 'mask',
          'result_type': 'popular',
          'count':5,
          'lang': 'en',
          }
-
+#save to Names2.csv, we select relevant elements of tweet
 csv_file = "Names2.csv"
 csv_columns = ['screen_name', 'userid', 'name', 'description', 'location', 'hashtags', 'mentions', 'date', 'favorite_count', 'id', 'in_reply_to_status_id', 'in_reply_to_user_id', 'in_reply_to_screen_name', 'text']
-
 dict_ = {'screen_name': [], 'userid': [], 'name': [], 'description': [], 'location': [], 'hashtags': [], 'mentions': [], 'date': [], 'favorite_count': [], 'id': [], 'in_reply_to_status_id': [], 'in_reply_to_user_id': [], 'in_reply_to_screen_name': [], 'text': []}
 for status in python_tweets.search(**query)['statuses']:
     dict_['screen_name'].append(status['user']['screen_name'])
@@ -37,15 +36,14 @@ for status in python_tweets.search(**query)['statuses']:
     dict_['in_reply_to_user_id'].append(status['in_reply_to_user_id'])
     dict_['in_reply_to_screen_name'].append(status['in_reply_to_screen_name'])
 
-
+#write results to csv
 zd = zip(*dict_.values())
 with open(csv_file, 'w') as file:
     writer = csv.writer(file, delimiter=',')
     writer.writerow(dict_.keys())
     writer.writerows(zd)
 
-
-
+#peaking top 5 results to console
 df = pd.DataFrame(dict_)
 df.sort_values(by='favorite_count', inplace=True, ascending=False)
 pd.set_option('display.max_columns', None)
