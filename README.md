@@ -1,7 +1,9 @@
 # COVID19
 
 main.py - main file
+
 twitter_credentials.json - twitter rate limits requests for data, rate limiting tied to credentials token
+
 Names2.csv - output
 
 
