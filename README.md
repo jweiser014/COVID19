@@ -22,3 +22,9 @@ The volume of data this stream delivers is significant, such that prior experien
         Your use case is non-commercial (for example, you do not plan to monetize the use of this data)
         Your use case supports the public good
         When the application is approved, you will need to activate the “COVID-19 stream” preview in the Labs dashboard.
+
+
+
+Reading list:
+https://arxiv.org/pdf/2006.04278.pdf
+https://twitter.com/nataliexdean/status/1271973142462939136
